@@ -15,6 +15,7 @@ The program must be future-rule-proof; it should let the planning team add more 
 
 ### Candidate-Class Table
 | Phrase from the Problem Statement | Initial Interpretation | Keep as class? (Y/N) | Reason |
+| --------------------------------- | ---------------------- | -------------------- | ------ |
 | Local Planning Team | Actor/Stakeholder | N | Local planning team uses the system, but not part of this small domain model. |
 | Parcel | Domain Entity | Y | Owns an identity, state, and geometry behavior. |
 | Zoning Classification | Parcel State | N | A value that's carried by parcel. (Allowed set of zones.) |
