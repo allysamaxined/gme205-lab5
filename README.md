@@ -29,4 +29,4 @@ The program must be future-rule-proof; it should let the planning team add more 
 | Rule Result | Value Object | Y | This will provide one consistent result shape from all the rules. |
 | Parcel Assessment | Coordinator | Y | This will be used to assess the parcel. |
 | Report | Output Representation | N | A JSON report will be sufficient for this programming exercise, lacks enough responsibility to be a class. |
-| Future Rule | Testing and Validation | N | This will be used to demonstrate the possibility of the code to have extensions or additions in the future. |
+| Future Rule | Extension Possibility | N | This will be used to demonstrate the possibility of the code to have extensions or additions in the future. |
