@@ -19,6 +19,11 @@
                     "rule_name": "No hazard overlap",
                     "passed": false,
                     "message": "Parcel intersects with the hazard zone."
+                },
+                {
+                    "rule_name": "Road access",
+                    "passed": true,
+                    "message": "0 <= 30"
                 }
             ]
         },
@@ -40,6 +45,11 @@
                     "rule_name": "No hazard overlap",
                     "passed": true,
                     "message": "Parcel does not intersect with the hazard zone."
+                },
+                {
+                    "rule_name": "Road access",
+                    "passed": true,
+                    "message": "20 <= 30"
                 }
             ]
         }

@@ -1,6 +1,6 @@
-from shapely.geometry import box
-from rules import MinimumAreaRule, AllowedZoneRule, NoHazardOverlapRule
-from spatial import Parcel, HazardZone
+from shapely.geometry import box, LineString
+from rules import MinimumAreaRule, AllowedZoneRule, NoHazardOverlapRule, RoadAccessRule
+from spatial import Parcel, HazardZone, Road
 from assessment import ParcelAssessment
 import json
 
@@ -28,10 +28,16 @@ def main():
         "High",
     )
 
+    road = Road (
+        "R-01",
+        LineString([(0, 0), (100,0)]),
+    )
+
     rules = [
         MinimumAreaRule(5000),
         AllowedZoneRule({"Residential", "Commercial"}),
         NoHazardOverlapRule(hazard),
+        RoadAccessRule(road, 30),
     ]
 
     assessments = [

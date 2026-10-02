@@ -1,7 +1,7 @@
 import pytest
-from shapely.geometry import box
-from src.rules import MinimumAreaRule, AllowedZoneRule, NoHazardOverlapRule, AssessmentRule, RuleResult
-from src.spatial import Parcel, HazardZone
+from shapely.geometry import box, LineString
+from src.rules import MinimumAreaRule, AllowedZoneRule, NoHazardOverlapRule, AssessmentRule, RuleResult, RoadAccessRule
+from src.spatial import Parcel, HazardZone, Road
 
 def test_assessment_rule_is_abstract():
     with pytest.raises(TypeError):
@@ -41,3 +41,28 @@ def test_hazard_rule_passes_and_fails():
 
     assert rule.evaluate(intersecting).passed is False
     assert rule.evaluate(separate).passed is True
+
+def test_road_access_rule_passes_and_fails():
+    road = Road (
+        "R-01",
+        LineString([(0, 0), (100,0)]),
+    )
+
+    rule = RoadAccessRule(road, 30)
+
+    nearby_parcel = Parcel(
+        "P-001",
+        box(120, 0, 130, 10),
+        "Residential",
+        5000,
+    )
+
+    distant_parcel = Parcel(
+        "P-002",
+        box(150, 0, 160, 10),
+        "Residential",
+        5000,
+    )
+
+    assert rule.evaluate(nearby_parcel).passed is True
+    assert rule.evaluate(distant_parcel).passed is False

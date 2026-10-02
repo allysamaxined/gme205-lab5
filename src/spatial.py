@@ -50,3 +50,12 @@ class HazardZone:
     @property
     def severity(self):
         return self._severity
+
+class Road:
+    def __init__(self, road_id, geometry):
+        self._road_id = str(road_id)
+        self._geometry = geometry
+
+    @property
+    def geometry(self):
+        return self._geometry
