@@ -34,11 +34,19 @@ class Parcel:
 
 class HazardZone:
     def __init__(self, zone_id, geometry, hazard_type, severity):
-        self._zone_id = zone_id
+        self._zone_id = str(zone_id)
         self._geometry = geometry
-        self._hazard_type = hazard_type
-        self._severity = severity
+        self._hazard_type = str(hazard_type)
+        self._severity = str(severity)
 
     @property
     def geometry(self):
         return self._geometry
+
+    @property
+    def hazard_type(self):
+        return self._hazard_type
+
+    @property
+    def severity(self):
+        return self._severity
